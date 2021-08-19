@@ -1,1 +1,43 @@
-<p>usuario-lista works!</p>
+<div class="card">
+    <p-table
+      [value]="listaUsuarios"
+      [paginator]="true"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
+      [rowsPerPageOptions]="[10, 25, 50]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>email</th>
+          <th>login</th>
+          <th>Estado</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.nombre }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.login }}</td>
+          <td>{{ user.estado?.descripcion }}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+        <p-button
+          type="button"
+          icon="pi pi-plus"
+          styleClass="p-button-text"
+        ></p-button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+        <p-button
+          type="button"
+          icon="pi pi-cloud"
+          styleClass="p-button-text"
+        ></p-button>
+      </ng-template>
+    </p-table>
+  </div>

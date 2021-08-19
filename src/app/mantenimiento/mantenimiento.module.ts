@@ -6,13 +6,28 @@ import { UsuarioComponent } from './containers/usuario/usuario.component';
 import { PerfilComponent } from './containers/perfil/perfil.component';
 import { UsuarioMantComponent } from './components/usuario-mant/usuario-mant.component';
 import { UsuarioListaComponent } from './components/usuario-lista/usuario-lista.component';
-
+import { PerfilDetalleComponent } from './components/perfil-detalle/perfil-detalle.component';
+import { AplicacionDetalleComponent } from './components/aplicacion-detalle/aplicacion-detalle.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'primeng-lts/table';
+import { ButtonModule } from 'primeng-lts/button';
 
 @NgModule({
-  declarations: [UsuarioComponent, PerfilComponent, UsuarioMantComponent, UsuarioListaComponent],
+  declarations: [
+    UsuarioComponent,
+    PerfilComponent,
+    UsuarioMantComponent,
+    UsuarioListaComponent,
+    PerfilDetalleComponent,
+    AplicacionDetalleComponent,
+  ],
   imports: [
     CommonModule,
-    MantenimientoRoutingModule
-  ]
+    MantenimientoRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TableModule,
+    ButtonModule
+  ],
 })
-export class MantenimientoModule { }
+export class MantenimientoModule {}

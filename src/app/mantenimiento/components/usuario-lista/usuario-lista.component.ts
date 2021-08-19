@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UsuarioResponse } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-usuario-lista',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioListaComponent implements OnInit {
 
+  @Input() listaUsuarios: UsuarioResponse[];
   constructor() { }
 
   ngOnInit(): void {
