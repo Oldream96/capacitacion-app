@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./errores-lista.component.scss']
 })
 export class ErroresListaComponent implements OnInit {
+  listaErrores:any[];
 
   constructor() { }
 

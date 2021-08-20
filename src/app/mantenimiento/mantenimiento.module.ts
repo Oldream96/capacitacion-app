@@ -13,6 +13,7 @@ import { TableModule } from 'primeng-lts/table';
 import { ButtonModule } from 'primeng-lts/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CommonComponentsModule } from '../common-components/common-components.module';
+import {ProgressSpinnerModule} from 'primeng-lts/progressspinner';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CommonComponentsModule } from '../common-components/common-components.m
     TableModule,
     ButtonModule,
     BrowserAnimationsModule,
+    ProgressSpinnerModule
   ],
 })
 export class MantenimientoModule {}

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UsuarioResponse, UsuarioResponseList } from '../models/usuario.model';
 import { environment } from 'src/environments/environment';
 import { PerfilResponse } from '../models/perfil.model';
+import { AplicacionResponse } from '../models/aplicacion.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,10 @@ export class UsuarioService {
   obtenerPerfil(idPerfil: number): Observable<PerfilResponse>{
     const urlPerfil = `${this.Usuario_api}/perfil/${idPerfil}`;
     return this.http.get<PerfilResponse>(urlPerfil);
+  }
+
+  obtenerAplicacion(idAplicacion: number): Observable<AplicacionResponse>{
+    const urlAplicacion = `${this.Usuario_api}/aplicacion/${idAplicacion}`;
+    return this.http.get<AplicacionResponse>(urlAplicacion);
   }
 }

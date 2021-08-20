@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auditoria-filtros.component.scss']
 })
 export class AuditoriaFiltrosComponent implements OnInit {
+  fechaInicio: Date;
+  fechaFin: Date;
 
   constructor() { }
 

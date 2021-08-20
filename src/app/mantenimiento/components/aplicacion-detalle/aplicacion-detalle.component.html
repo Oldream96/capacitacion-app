@@ -1,3 +1,23 @@
-<div>
-    Detalles
+<div class="contenedor_detalle d-flex">
+    <div *ngIf="loading" style="display: flex; margin: auto;" >
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+    <div class="row" *ngIf="!loading" style="display: flex;margin: auto;">
+        <div class="col-6">
+            <div class="row" style="line-height: 3rem;">
+                <div class="col-12">
+                    ID: <strong>{{ Aplicacion.id }} </strong> 
+                </div>
+                <div class="col-12">
+                    Nombre: <strong>{{ Aplicacion.nombre }}</strong>
+                </div>
+                <div class="col-12">
+                    Url: <strong>{{ Aplicacion.url == '' ? 'No hay URL disponible' : Aplicacion.url }}</strong>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 d-flex" style="margin: auto;">
+            <img style="margin: auto;" src="{{ Aplicacion.imagen == '' ? 'assets/img/sinimagen.jpg' : Aplicacion.imagen  }}" width="200px" height="200px"/>
+        </div>
+    </div>
 </div>
