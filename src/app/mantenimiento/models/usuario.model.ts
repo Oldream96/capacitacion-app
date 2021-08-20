@@ -28,3 +28,18 @@ export class UsuarioResponseList{
         totalpagina:number;
     }
 }
+
+export class UsuarioRequest{
+
+    idPersona: number;
+    nombre: string;
+    login: string;
+    email: string;
+    esAd: number;
+    clave: string;
+    estado: {
+      id: number;
+    };
+    cambioContrasenia: boolean;
+  
+}

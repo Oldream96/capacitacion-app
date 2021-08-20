@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AuditoriaFiltrosComponent implements OnInit {
   fechaInicio: Date;
   fechaFin: Date;
-
+  hora = Date.now();
   constructor() { }
 
   ngOnInit(): void {

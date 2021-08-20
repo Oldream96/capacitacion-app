@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioRequest } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-usuario-mant',
@@ -8,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UsuarioMantComponent implements OnInit {
 
-  @Output() enviarUsuarioEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Output() enviarUsuarioEvent: EventEmitter<UsuarioRequest> = new EventEmitter<UsuarioRequest>();
   public myForm: FormGroup;
 
   constructor(private fb: FormBuilder,) { }
@@ -31,15 +32,22 @@ export class UsuarioMantComponent implements OnInit {
   }
 
   enviarUsuario() {
-    this.enviarUsuarioEvent.emit({ id: 1, name: 'nombre', edad: '23' });
+    //this.enviarUsuarioEvent.emit({ id: 1, name: 'nombre', edad: '23' });
   }
 
   onSubmit() {
     console.log(this.myForm);
-    console.log(this.myForm.value);
-    console.log(this.myForm.controls.email.value);
     if (this.myForm.valid) {
-      console.log('Formulario válido enviar a backend');
+      var usuaroRequest = new UsuarioRequest();
+      usuaroRequest.idPersona = 1;
+      usuaroRequest.nombre = this.myForm.controls.nombre.value;
+      usuaroRequest.login = this.myForm.controls.login.value;
+      usuaroRequest.email = this.myForm.controls.email.value;
+      usuaroRequest.clave = this.myForm.controls.password.value;
+      usuaroRequest.cambioContrasenia = this.myForm.controls.escontraseña.value == null ? false : this.myForm.controls.escontraseña.value ;
+      usuaroRequest.estado = { id: 1 };
+      console.log(usuaroRequest);
+      this.enviarUsuarioEvent.emit( usuaroRequest );
     }
   }
 

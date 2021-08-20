@@ -2,6 +2,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PerfilResponse } from '../../models/perfil.model';
+import { UsuarioRequest } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
@@ -25,5 +26,6 @@ export class PerfilComponent implements OnInit {
       this.perfilUsuario = data;
     });
   }
+
 
 }

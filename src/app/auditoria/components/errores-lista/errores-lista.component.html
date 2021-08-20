@@ -9,29 +9,20 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th>Nombre</th>
-          <th>email</th>
-          <th>login</th>
-          <th>Estado</th>
-          <th>Acciones</th>
+          <th>Api Metodo</th>
+          <th>Fecha</th>
+          <th>Mensaje</th>
+          <th>Nombre Api</th>
+          <th>Nombre Metodo</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-user>
+      <ng-template pTemplate="body" let-aplicacion>
         <tr>
-          <td>{{ user.nombre }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.login }}</td>
-          <td>{{ user.estado?.descripcion }}</td>
-          <td>
-            <a class="btn btn-success" routerLink="/perfil/10" routerLinkActive="active" >
-              <i class="pi pi-fw pi-search" style="font-size: 1em"></i>
-                Perfil
-            </a>
-            <button class="btn btn-warning" style="margin-left: 10px;" >
-              <i class="pi pi-fw pi-pencil" style="font-size: 1em"></i>
-                Editar
-            </button>
-          </td>
+          <td>{{ aplicacion.nombre }}</td>
+          <td>{{ aplicacion.email }}</td>
+          <td>{{ aplicacion.login }}</td>
+          <td>{{ aplicacion.estado?.descripcion }}</td>
+          <td>{{ aplicacion.estado?.descripcion }}</td>
         </tr>
       </ng-template>
     </p-table>

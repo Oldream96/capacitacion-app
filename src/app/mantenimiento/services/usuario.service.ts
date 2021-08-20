@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UsuarioResponse, UsuarioResponseList } from '../models/usuario.model';
+import { UsuarioRequest, UsuarioResponse, UsuarioResponseList } from '../models/usuario.model';
 import { environment } from 'src/environments/environment';
 import { PerfilResponse } from '../models/perfil.model';
 import { AplicacionResponse } from '../models/aplicacion.model';
@@ -28,5 +28,10 @@ export class UsuarioService {
   obtenerAplicacion(idAplicacion: number): Observable<AplicacionResponse>{
     const urlAplicacion = `${this.Usuario_api}/aplicacion/${idAplicacion}`;
     return this.http.get<AplicacionResponse>(urlAplicacion);
+  }
+
+  crearUsuario( usuarioRequest:UsuarioRequest ):Observable<UsuarioRequest>{
+    const urlUser = `${this.Usuario_api}/usuario/nuevo`;
+    return this.http.post<UsuarioRequest>(urlUser,usuarioRequest);
   }
 }

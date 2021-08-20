@@ -14,6 +14,8 @@ import { ButtonModule } from 'primeng-lts/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CommonComponentsModule } from '../common-components/common-components.module';
 import {ProgressSpinnerModule} from 'primeng-lts/progressspinner';
+import { ToastModule } from 'primeng-lts/toast';
+import { RippleModule } from 'primeng-lts/ripple';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {ProgressSpinnerModule} from 'primeng-lts/progressspinner';
     TableModule,
     ButtonModule,
     BrowserAnimationsModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ToastModule,
+    RippleModule,
   ],
 })
 export class MantenimientoModule {}

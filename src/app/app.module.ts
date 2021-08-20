@@ -8,6 +8,7 @@ import { CommonComponentsModule } from './common-components/common-components.mo
 import { AuditoriaModule } from './auditoria/auditoria.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { ToastModule } from 'primeng-lts/toast';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     AuditoriaModule,
     MantenimientoModule,
     HttpClientModule,
+    ToastModule,
   ],
   providers: [
     {
