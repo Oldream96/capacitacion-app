@@ -33,6 +33,7 @@
                 type="email"
                 class="form-control"
                 id="inputEmail"
+                placeholder="email@dominio.com"
                 formControlName="email"
                 [ngClass]="{
                   'is-invalid': myForm.controls.email.invalid && myForm.controls.email.touched,
@@ -53,6 +54,7 @@
                 type="password"
                 class="form-control"
                 id="inputPassword"
+                placeholder="*******"
                 formControlName="password"
                 [ngClass]="{ 'is-invalid': myForm.controls.password.invalid && myForm.controls.password.touched }"
               />
@@ -96,9 +98,6 @@
           </div>
         </div>
         <button class="btn btn-primary" (click)="onSubmit()">Registrar</button>
-        <button class="btn btn-secondary ml-2" (click)="onRestart()">
-          Restablecer
-        </button>
       </form>
     </div>
   </div>

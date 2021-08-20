@@ -1,2 +1,9 @@
-<app-usuario-mant></app-usuario-mant>
-<app-usuario-lista  [listaUsuarios]="listaUsuarios" ></app-usuario-lista>
+<div class="row">
+    <div class="col-12 mt-2" *ngIf="mostrarUsuario">
+        <app-usuario-mant></app-usuario-mant>
+    </div>
+    <div class="col-12 d-flex">
+        <button class="btn btn-primary" style="margin: auto;margin-right: 0; margin-top: 1rem;margin-bottom: 1rem;" (click)="mostrarFormulario()"> Nuevo</button>
+    </div>
+    <app-usuario-lista  [listaUsuarios]="listaUsuarios" ></app-usuario-lista>
+</div>

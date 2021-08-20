@@ -14,6 +14,7 @@ export class UsuarioMantComponent implements OnInit {
   constructor(private fb: FormBuilder,) { }
 
   ngOnInit(): void {
+    console.log('init');
     this.initForm()
   }
 

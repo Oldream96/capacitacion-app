@@ -8,6 +8,10 @@ import { CardComponent } from './components/card/card.component';
   declarations: [PageNotFoundComponent, CardComponent],
   imports: [
     CommonModule,
-  ]
+  ],
+  exports: [
+    PageNotFoundComponent,
+    CardComponent,
+  ],
 })
 export class CommonComponentsModule { }

@@ -6,21 +6,28 @@ import { AppComponent } from './app.component';
 import { MantenimientoModule } from './mantenimiento/mantenimiento.module';
 import { CommonComponentsModule } from './common-components/common-components.module';
 import { AuditoriaModule } from './auditoria/auditoria.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    CommonComponentsModule,
     BrowserModule,
     AppRoutingModule,
     AuditoriaModule,
     MantenimientoModule,
-    CommonComponentsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

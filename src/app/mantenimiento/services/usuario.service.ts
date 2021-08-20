@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UsuarioResponse, UsuarioResponseList } from '../models/usuario.model';
 import { environment } from 'src/environments/environment';
+import { PerfilResponse } from '../models/perfil.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +11,16 @@ import { environment } from 'src/environments/environment';
 export class UsuarioService {
 
   Usuario_api = environment.USUARIO_API;
-  token = environment.token;
-  private header = new HttpHeaders({
-    Authorization: this.token,
-  });
 
   constructor(private http: HttpClient) { }
 
-  getAllUser(): Observable<UsuarioResponseList> {
-    const urlUser = `${this.Usuario_api}/todos`;
-    return this.http.get<UsuarioResponseList>(urlUser,{
-      headers: this.header,
-    });
+  obtenerUsuarios(): Observable<UsuarioResponseList> {
+    const urlUser = `${this.Usuario_api}/usuario/todos`;
+    return this.http.get<UsuarioResponseList>(urlUser);
+  }
+
+  obtenerPerfil(idPerfil: number): Observable<PerfilResponse>{
+    const urlPerfil = `${this.Usuario_api}/perfil/${idPerfil}`;
+    return this.http.get<PerfilResponse>(urlPerfil);
   }
 }

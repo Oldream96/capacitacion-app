@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PerfilResponse } from '../../models/perfil.model';
 
 @Component({
   selector: 'app-perfil-detalle',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil-detalle.component.scss']
 })
 export class PerfilDetalleComponent implements OnInit {
+  @Input() perfilUsuario: PerfilResponse = new PerfilResponse;
 
   constructor() { }
 

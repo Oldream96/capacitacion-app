@@ -11,6 +11,8 @@ import { AplicacionDetalleComponent } from './components/aplicacion-detalle/apli
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng-lts/table';
 import { ButtonModule } from 'primeng-lts/button';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CommonComponentsModule } from '../common-components/common-components.module';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { ButtonModule } from 'primeng-lts/button';
     AplicacionDetalleComponent,
   ],
   imports: [
+    CommonComponentsModule,
     CommonModule,
     MantenimientoRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    BrowserAnimationsModule,
   ],
 })
 export class MantenimientoModule {}

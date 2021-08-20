@@ -1,1 +1,17 @@
-<p>perfil-detalle works!</p>
+<div class="row">
+    <div class="col-12">
+        ID: {{ perfilUsuario?.id }}
+    </div>
+    <div class="col-12">
+        NOMBRE: {{ perfilUsuario?.nombre }}
+    </div>
+    <div class="col-12">
+        DESCRIPCION: {{ perfilUsuario?.descripcion }}
+    </div>
+    <div class="col-12">
+        EMPRESA: {{ perfilUsuario?.empresa?.nombre }}
+    </div>
+    <div class="col-12">
+        ESTADO: {{ perfilUsuario?.estado?.descripcion }}
+    </div>
+</div>

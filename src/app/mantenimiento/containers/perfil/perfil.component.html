@@ -1,1 +1,13 @@
-<p>perfil works!</p>
+<div class="row mt-5">
+    <div class="col-6">
+        <app-card [titulo]="'Detalle Perfil'" >
+            <app-perfil-detalle [perfilUsuario]="perfilUsuario"></app-perfil-detalle>
+        </app-card>
+    </div>
+    <div class="col-6">
+        <app-card [titulo]="'Detalle Aplicacion'" >
+            <app-aplicacion-detalle *ngFor="let aplicacion of perfilUsuario.aplicacionesAsignadas" 
+                [idAplicacionAsignada]="aplicacion" ></app-aplicacion-detalle>
+        </app-card>
+    </div>
+</div>

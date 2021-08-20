@@ -9,15 +9,22 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
   listaUsuarios: UsuarioResponse[] = [];
+  mostrarUsuario=false;
 
   constructor(
     private servicioUsuario: UsuarioService,
   ) { }
 
   ngOnInit(): void {
-    this.servicioUsuario.getAllUser().subscribe(data=>{
+    this.servicioUsuario.obtenerUsuarios().subscribe(data=>{
       this.listaUsuarios = data.usuarios;
+      console.log(data);
+      
     })
+  }
+
+  mostrarFormulario(){
+    this.mostrarUsuario = !this.mostrarUsuario;
   }
 
 }
