@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UsuarioResponse } from '../../models/usuario.model';
 
 @Component({
@@ -9,9 +9,13 @@ import { UsuarioResponse } from '../../models/usuario.model';
 export class UsuarioListaComponent implements OnInit {
 
   @Input() listaUsuarios: UsuarioResponse[];
+  @Output() enviarUsuarioIdEvent: EventEmitter<number> = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+  editarUsuario(idUsuario:number){
+    this.enviarUsuarioIdEvent.emit(idUsuario);
   }
 
 }

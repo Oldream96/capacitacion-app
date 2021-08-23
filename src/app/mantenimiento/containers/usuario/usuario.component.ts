@@ -12,6 +12,7 @@ import { UsuarioService } from '../../services/usuario.service';
 export class UsuarioComponent implements OnInit {
   listaUsuarios: UsuarioResponse[] = [];
   mostrarUsuario=false;
+  usuarioEdit: UsuarioResponse;
 
   constructor(
     private servicioUsuario: UsuarioService,
@@ -21,6 +22,11 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+    this.listarUsuarios();
+
+  }
+
+  listarUsuarios(){
     this.servicioUsuario.obtenerUsuarios().subscribe(data=>{
       this.listaUsuarios = data.usuarios;
       console.log(data);
@@ -36,12 +42,47 @@ export class UsuarioComponent implements OnInit {
   }
 
   enviarUsuario(usuario: UsuarioRequest ){
+    if(!this.usuarioEdit){
+      this.crearUsuario(usuario);
+    }else{
+      this.editarUsuario(usuario);
+    }
+
+  }
+
+  crearUsuario(usuario: UsuarioRequest){
     this.servicioUsuario.crearUsuario(usuario).subscribe(data=>{
-      console.log(data);
+      if(data){
+        this.messageService.add({severity:'success', summary: 'Usuario Agregado', detail: 'Usuario Agregado Exitosamente'});
+        this.mostrarUsuario = false;
+        this.listarUsuarios();
+      }
     },error=>{
-      console.log(error);
-      this.messageService.add({severity:'error', summary: 'Error al Insertar', detail:'Validation failed'});
+      this.messageService.add({severity:'error', summary: 'Error al Insertar', detail:'Error al Insertar Usuario: ' + error.error.error.mensaje });
     });
+  }
+
+  editarUsuario(usuario: UsuarioRequest){
+    this.servicioUsuario.editarUsuario(this.usuarioEdit.id,usuario).subscribe(data=>{
+      this.messageService.add({severity:'success', summary: 'Usuario Editado', detail: 'Usuario Editado Exitosamente'});
+      this.mostrarUsuario = false;
+      this.listarUsuarios();
+    },error=>{
+      this.messageService.add({severity:'error', summary: 'Error al Editar', detail:'Error al Editar Usuario: ' + error.error.error.mensaje });
+    });
+  }
+
+  obtenerUsuarioId(idUsuario: number){
+    this.mostrarUsuario= false;
+    this.servicioUsuario.obtenerUsuarioPorId(idUsuario).subscribe(data=>{
+      this.usuarioEdit = data;
+      this.mostrarUsuario = true;
+    });
+  }
+
+  obtener(){
+    console.log(localStorage.getItem('token_auth'));
+    
   }
 
 }

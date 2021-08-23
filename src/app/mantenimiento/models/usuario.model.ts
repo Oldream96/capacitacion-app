@@ -8,6 +8,7 @@ export class UsuarioResponse{
     fechaUltimaSesion: Date;
     estado: EstadoUsuario;
     perfil: PerfilUsuario;
+    clave: string;
 }
 
 
