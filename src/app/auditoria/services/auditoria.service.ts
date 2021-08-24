@@ -21,7 +21,7 @@ export class AuditoriaService {
         
       }
     });
-    const urlUser = `${this.Auditoria_api}/listar`;
-    return this.http.get<ErrorLogList>(urlUser, { params:params });
+    const urlUser = `${this.Auditoria_api}listar`;
+    return this.http.get<ErrorLogList>(urlUser, { params:params,observe:'body',responseType:'json' });
   }
 }

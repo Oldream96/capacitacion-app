@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UsuarioRequest, UsuarioResponse, UsuarioResponseList } from '../models/usuario.model';
 import { environment } from 'src/environments/environment';
@@ -17,6 +17,7 @@ export class UsuarioService {
 
   obtenerUsuarios(): Observable<UsuarioResponseList> {
     const urlUser = `${this.Usuario_api}/usuario/todos`;
+    let params = new HttpParams();
     return this.http.get<UsuarioResponseList>(urlUser);
   }
 

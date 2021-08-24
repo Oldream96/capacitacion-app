@@ -1,6 +1,6 @@
 <div class="card">
     <p-table
-      [value]="listaErrores"
+      [value]="errorLogs"
       [paginator]="true"
       [rows]="10"
       [showCurrentPageReport]="true"
@@ -20,11 +20,11 @@
       </ng-template>
       <ng-template pTemplate="body" let-aplicacion>
         <tr>
-          <td>{{ aplicacion.nombre }}</td>
-          <td>{{ aplicacion.email }}</td>
-          <td>{{ aplicacion.login }}</td>
-          <td>{{ aplicacion.estado?.descripcion }}</td>
-          <td>{{ aplicacion.estado?.descripcion }}</td>
+          <td>{{ aplicacion.apimethod }}</td>
+          <td>{{ aplicacion.fecharegistro | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ aplicacion.fecharegistro | date: 'dd/MM/yyyy'}}</td>
+          <td>{{ aplicacion.nombreapi }}</td>
+          <td>{{ aplicacion.nombremetodo }}</td>
         </tr>
       </ng-template>
     </p-table>

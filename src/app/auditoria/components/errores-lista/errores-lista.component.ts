@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LazyLoadEvent } from 'primeng-lts/api';
-import { errorListaRequest } from '../../models/error.model';
+import { errorListaRequest, ErrorLog } from '../../models/error.model';
 
 @Component({
   selector: 'app-errores-lista',
@@ -8,7 +8,7 @@ import { errorListaRequest } from '../../models/error.model';
   styleUrls: ['./errores-lista.component.scss']
 })
 export class ErroresListaComponent implements OnInit {
-  listaErrores:any[];
+  @Input() errorLogs: ErrorLog[] ;
 
   constructor() { }
 

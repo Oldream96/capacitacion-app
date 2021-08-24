@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "capacitacion-app"
+    }
+  },
+  "defaultProject": "capacitacion-app",
+  "cli": {
+    "analytics": false
+  }
 }
