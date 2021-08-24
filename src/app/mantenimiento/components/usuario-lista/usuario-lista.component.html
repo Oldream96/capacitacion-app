@@ -6,6 +6,8 @@
       [showCurrentPageReport]="true"
       currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
       [rowsPerPageOptions]="[10, 25, 50]"
+      [rows]="10" 
+      [totalRecords]="totalRecords"
     >
       <ng-template pTemplate="header">
         <tr>
@@ -16,14 +18,14 @@
           <th>Acciones</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-user>
-        <tr>
+      <ng-template pTemplate="body" let-user >
+        <tr [appInactivo]="user.estado?.descripcion">
           <td>{{ user.nombre }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.login }}</td>
           <td>{{ user.estado?.descripcion }}</td>
           <td>
-            <a class="btn btn-success" routerLink="/perfil/10" routerLinkActive="active" >
+            <a class="btn btn-success" routerLink="/perfil/10" routerLinkActive="active">
               <i class="pi pi-fw pi-search" style="font-size: 1em"></i>
                 Perfil
             </a>

@@ -2,4 +2,4 @@
     <h1>Auditoria Errores</h1>
 </div>
 <app-auditoria-filtros (enviarBuscar)="enviarBuscar($event)"></app-auditoria-filtros>
-<app-errores-lista [errorLogs]="errorLogs" (tableEvent)="erroresPaginate($event)" ></app-errores-lista>
+<app-errores-lista [loading]="loading" [totalRecords]="totalRecords" [errorLogs]="errorLogs" (tableEvent)="erroresPaginate($event)" ></app-errores-lista>

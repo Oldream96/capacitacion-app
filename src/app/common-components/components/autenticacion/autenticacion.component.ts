@@ -21,7 +21,6 @@ export class AutenticacionComponent implements OnInit {
   obtenerKey(){
     this.servicioUsuario.obtenerKey().subscribe(
       (data: HttpResponse<any>) => {
-        console.log(data.headers.get('authorization'));
         localStorage.setItem('auth_token', data.headers.get('authorization'));
         this.router.navigate(['usuario']);
       });

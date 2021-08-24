@@ -22,7 +22,6 @@ export class UsuarioMantComponent implements OnInit {
   }
 
   initForm() {
-    console.log(this.usuarioEdit);
     this.iniciarFormulario();
   }
 

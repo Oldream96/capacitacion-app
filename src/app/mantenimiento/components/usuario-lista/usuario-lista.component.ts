@@ -10,6 +10,7 @@ export class UsuarioListaComponent implements OnInit {
 
   @Input() listaUsuarios: UsuarioResponse[];
   @Output() enviarUsuarioIdEvent: EventEmitter<number> = new EventEmitter<number>();
+  @Input() totalRecords: number;
   constructor() { }
 
   ngOnInit(): void {

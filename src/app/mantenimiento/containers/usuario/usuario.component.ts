@@ -13,6 +13,7 @@ export class UsuarioComponent implements OnInit {
   listaUsuarios: UsuarioResponse[] = [];
   mostrarUsuario=false;
   usuarioEdit: UsuarioResponse;
+  totalRecords = 0;
 
   constructor(
     private servicioUsuario: UsuarioService,
@@ -29,10 +30,9 @@ export class UsuarioComponent implements OnInit {
   listarUsuarios(){
     this.servicioUsuario.obtenerUsuarios().subscribe(data=>{
       this.listaUsuarios = data.usuarios;
-      console.log(data);
+      this.totalRecords = data.paginacion.totalregistros;
       
     },error=>{
-      console.log(error.error.error);
       this.messageService.add({severity:'error', summary: 'Error al Obtener Usuarios', detail:error.error.error.mensaje});
     })
   }
@@ -81,7 +81,6 @@ export class UsuarioComponent implements OnInit {
   }
 
   obtener(){
-    console.log(localStorage.getItem('token_auth'));
     
   }
 

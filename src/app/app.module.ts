@@ -9,6 +9,7 @@ import { AuditoriaModule } from './auditoria/auditoria.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ToastModule } from 'primeng-lts/toast';
+import { InactivoDirective } from './common-components/directives/inactivo.directive';
 
 @NgModule({
   declarations: [

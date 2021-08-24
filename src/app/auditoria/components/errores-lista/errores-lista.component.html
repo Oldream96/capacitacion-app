@@ -8,6 +8,8 @@
       [rowsPerPageOptions]="[10, 25, 50]"
       [lazy]="true"
       (onLazyLoad)="loadLazyErrores($event)"
+      [totalRecords]="totalRecords"
+      [loading]="loading"
     >
       <ng-template pTemplate="header">
         <tr>

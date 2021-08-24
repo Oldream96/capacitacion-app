@@ -11,6 +11,10 @@ export class AuditoriaErroresComponent implements OnInit {
 
   errorRequest: errorListaRequest;
   errorLogs: ErrorLog[] = [];
+  fechaInicio: string;
+  fechaFin: string;
+  totalRecords = 0;
+  loading: boolean = false;
   constructor(
     private serviceAuditoria: AuditoriaService
   ) { }
@@ -19,7 +23,8 @@ export class AuditoriaErroresComponent implements OnInit {
   }
 
   enviarBuscar(request: errorListaRequest){
-    console.log(request);
+    this.fechaInicio = request.fechainicio;
+    this.fechaFin = request.fechafin;
     this.erroresPaginate(request);
   }
 
@@ -27,11 +32,15 @@ export class AuditoriaErroresComponent implements OnInit {
     this.errorRequest = {
       ...request,
     };
-    console.log(this.errorRequest);
-    if(!this.errorRequest.fechainicio || !this.errorRequest.fechafin) return;
+    this.errorRequest.fechafin = this.fechaFin;
+    this.errorRequest.fechainicio = this.fechaInicio;
+    this.errorRequest.numeropagina = this.errorRequest.numeropagina != 1 ? this.errorRequest.numeropagina/10 +1 : this.errorRequest.numeropagina;
+    if(!this.fechaInicio || !this.fechaFin) return;
+    this.loading = true;
     this.serviceAuditoria.obtenerErrores(this.errorRequest).subscribe(data=>{
-      console.log(data.logs);
       this.errorLogs = data.logs;
+      this.loading = false;
+      this.totalRecords = data.paginacion.totalregistros;
     })
     
   }

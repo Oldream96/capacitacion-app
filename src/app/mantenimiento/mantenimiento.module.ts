@@ -16,6 +16,7 @@ import { CommonComponentsModule } from '../common-components/common-components.m
 import {ProgressSpinnerModule} from 'primeng-lts/progressspinner';
 import { ToastModule } from 'primeng-lts/toast';
 import { RippleModule } from 'primeng-lts/ripple';
+import { InactivoDirective } from '../common-components/directives/inactivo.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RippleModule } from 'primeng-lts/ripple';
     UsuarioListaComponent,
     PerfilDetalleComponent,
     AplicacionDetalleComponent,
+    InactivoDirective,
   ],
   imports: [
     CommonComponentsModule,

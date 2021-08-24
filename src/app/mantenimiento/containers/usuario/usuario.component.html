@@ -7,6 +7,6 @@
     <div class="col-12 d-flex">
         <button class="btn btn-primary" style="margin: auto;margin-right: 0; margin-top: 1rem;margin-bottom: 1rem;" (click)="mostrarFormulario()"> Nuevo</button>
     </div>
-    <app-usuario-lista  [listaUsuarios]="listaUsuarios" (enviarUsuarioIdEvent)="obtenerUsuarioId($event)" ></app-usuario-lista>
+    <app-usuario-lista [totalRecords]="totalRecords"  [listaUsuarios]="listaUsuarios" (enviarUsuarioIdEvent)="obtenerUsuarioId($event)" ></app-usuario-lista>
 </div>
 <button class="btn btn-warning" (click)="obtener()" >asdasd</button>

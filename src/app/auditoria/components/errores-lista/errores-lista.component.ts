@@ -9,6 +9,8 @@ import { errorListaRequest, ErrorLog } from '../../models/error.model';
 })
 export class ErroresListaComponent implements OnInit {
   @Input() errorLogs: ErrorLog[] ;
+  @Input() totalRecords: number;
+  @Input() loading: boolean;
 
   constructor() { }
 
@@ -20,7 +22,7 @@ export class ErroresListaComponent implements OnInit {
 
   loadLazyErrores(event: LazyLoadEvent) {
     const request = new errorListaRequest();
-    request.numeropagina = event.first == 0 ? 1 : event.first ;
+    request.numeropagina = event.first == 0 ? 1 : (event.first) ;
     request.registroporpagina = event.rows;
     this.tableEvent.emit(request);
 
