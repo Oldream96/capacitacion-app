@@ -2,4 +2,4 @@
     <h1>Auditoria Errores</h1>
 </div>
 <app-auditoria-filtros></app-auditoria-filtros>
-<app-errores-lista></app-errores-lista>
+<app-errores-lista (tableEvent)="erroresPaginate($event)" ></app-errores-lista>

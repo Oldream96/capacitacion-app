@@ -6,6 +6,8 @@
       [showCurrentPageReport]="true"
       currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
       [rowsPerPageOptions]="[10, 25, 50]"
+      [lazy]="true"
+      (onLazyLoad)="loadLazyErrores($event)"
     >
       <ng-template pTemplate="header">
         <tr>
